@@ -1,0 +1,122 @@
+<div class="card">
+    <h5 class="card-header">Reactive Form</h5>
+    <div class="card-body">
+        <form [formGroup]="registerForm" >
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>First Name</label>
+                    <input type="text" formControlName="firstName"  class="form-control" [(ngModel)]="firstName"  [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
+                    <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                        <div *ngIf="f['firstName'].errors['required']">First Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col"> 
+                    <label>Last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control" [(ngModel)]="lastName"  [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }" />
+                    <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+                        <div *ngIf="f['lastName'].errors['required']">Last Name is required</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Email Address</label>
+                    <input type="text" formControlName="email" class="form-control" [(ngModel)]="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="f['email'].errors['required']">Email is required</div>
+                        <div *ngIf="f['email'].errors['email']">Email must be a valid email address</div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label>Date of Birth</label>
+                    <input type="date" formControlName="dob" class="form-control" [(ngModel)]="dob"  [ngClass]="{ 'is-invalid': submitted && f['dob'].errors }" />
+                    <div *ngIf="submitted && f['dob'].errors" class="invalid-feedback">
+                        <div *ngIf="f['dob'].errors['required']">Date of Birth is required</div>
+                        <div *ngIf="f['dob'].errors['pattern']">Date of Birth must be a valid date in the format YYYY-MM-DD</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col">
+                <label>Phone Number</label>
+                <input type="number" formControlName="phone" class="form-control" [(ngModel)]="phone"  [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }" />
+                <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
+                    <div *ngIf="f['phone'].errors['required']">phone number is required</div>
+                    <div *ngIf="f['phone'].errors['phone']">phone number must be a valid phone number address</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <div >
+                  <input id="male" type="radio" value="male" name="gender" formControlName="gender" >
+                  <label for="male">Male</label>
+               
+                  <input id="female" type="radio" value="female" name="gender"  formControlName="gender">
+                  <label for="female">Female</label>
+
+                  <input id="others" type="radio" value="others" name="gender"   formControlName="gender"  >
+                  <label for="others">others</label>
+                </div>
+                
+              </div>
+            
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Password</label>
+                    <input type="password" formControlName="password" class="form-control"  [(ngModel)]="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                        <div *ngIf="f['password'].errors['required']">Password is required</div>
+                        <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="text-center" >
+                <button class="btn btn-primary mr-1" (click)="onSubmit()">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+   
+
+
+<div class="card1">
+  <p>   firstName : {{originalUserName}}</p>
+  <p> lastName : {{userlastName}}</p>
+  <p> email : {{useremail}}</p>
+  <p> dob : {{userdob}}</p>
+  <p> gender : {{usergender}}</p>
+  <p> phone : {{userphone}}</p>
+
+</div>
+
+<!-- <pre> {{registerForm.value | json }}</pre> -->
+
+<!-- <div class="card1">
+    <table class="table">
+        <thead>
+            <tr>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Email</th>
+        <th scope="col">Date Of Birth</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Gender</th>
+       
+    </tr>
+    </thead>
+    
+    <tbody>
+        <tr *ngFor=" let row of employeeData">
+            <td>{{row.firstName}}</td>
+            <td>{{row.lastName}}</td>
+            <td>{{row.email}}</td>
+            <td>{{row.dob}}</td>
+            <td>{{row.phone}}</td>
+            <td>{{row.gender}}</td>
+           
+        </tr>
+    </tbody>
+    </table>
+    </div> -->

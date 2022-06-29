@@ -1,0 +1,27 @@
+<div class="card">
+<table class="table">
+    <thead>
+        <tr>
+    <th scope="col">FirstName</th>
+    <th scope="col">LastName</th>
+    <th scope="col">Email</th>
+    <th scope="col">Date Of Birth</th>
+    <th scope="col">Phone</th>
+    <th scope="col">Gender</th>
+   
+</tr>
+</thead>
+
+<tbody>
+    <tr *ngFor=" let row of employeeData">
+        <td>{{row.firstName}}</td>
+        <td>{{row.lastName}}</td>
+        <td>{{row.email}}</td>
+        <td>{{row.dob}}</td>
+        <td>{{row.phone}}</td>
+        <td>{{row.gender}}</td>
+       
+    </tr>
+</tbody>
+</table>
+</div>
